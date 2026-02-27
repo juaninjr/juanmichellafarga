@@ -308,7 +308,7 @@ export const cvEntries: CVEntry[] = [
     endYear: 2025,
     periodLabel: 'Sept 2025',
     durationLabel: '1 month',
-    description: 'Provided technical assistance and client-facing solutions on system specifications. Supported validation tests and experiments of architectural systems. Applied calculation methods and regulatory compliance checks (CTE). Trained in specialized industry software (Alcorsa, Cortizolab, Cortizocenter).',
+    description: 'Cortizo is European leader for design and production of architectural aluminium structures. During my time there I offered technical assistance to clients on system specs. Learned about validation tests, regulatory compliance (CTE) and trained in software like Orgadata, Cortizolab & Cortizocenter.' ,
   },
   {
     id: 'cv3',
