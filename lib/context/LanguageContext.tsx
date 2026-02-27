@@ -17,10 +17,10 @@ const translations: Record<Locale, Record<string, string>> = {
     // Navigation
     'nav.viewingAs': 'Viewing as',
     'nav.switchView': 'Switch view',
-    'nav.fullEcosystem': 'Full ecosystem',
+    'nav.fullEcosystem': 'Full dashboard',
     // Landing
     'landing.title': 'Juan Michel',
-    'landing.subtitle': 'An ecosystem of disciplines',
+    'landing.subtitle': 'A dashboard of disciplines',
     'landing.whoAreYou': 'Who are you looking for?',
     'landing.welcomeBack': 'Welcome back —',
     'landing.continueAs': 'Continue as',

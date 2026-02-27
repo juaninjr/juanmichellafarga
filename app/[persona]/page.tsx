@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 import SectionRenderer from '@/components/SectionRenderer';
 import { PersonaSaveEffect } from '@/components/PersonaSaveEffect';
 import Footer from '@/components/Footer';
+import GalleryGate from '@/components/GalleryGate';
 
 interface PersonaPageProps {
   params: { persona: string };
@@ -34,7 +35,7 @@ export default function PersonaPage({ params }: PersonaPageProps) {
 
   const config = PERSONAS[params.persona];
 
-  return (
+  const pageContent = (
     <div
       data-persona={config.slug}
       className="min-h-screen"
@@ -57,4 +58,11 @@ export default function PersonaPage({ params }: PersonaPageProps) {
       <Footer persona={config.slug} />
     </div>
   );
+
+  // Artist gallery is gated — edit components/GalleryGate.tsx to toggle or change the message
+  if (config.slug === 'artist') {
+    return <GalleryGate>{pageContent}</GalleryGate>;
+  }
+
+  return pageContent;
 }

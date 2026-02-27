@@ -26,10 +26,10 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: 'Juan Michel',
-  description: 'Architecture · Music · Art — an ecosystem of disciplines.',
+  description: 'Architecture · Music · Art — a dashboard of disciplines.',
   openGraph: {
     title: 'Juan Michel',
-    description: 'Architecture · Music · Art — an ecosystem of disciplines.',
+    description: 'Architecture · Music · Art — a dashboard of disciplines.',
     url: 'https://whoisjuanmichel.com',
     siteName: 'Juan Michel',
     type: 'website',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Juan Michel',
-    description: 'Architecture · Music · Art — an ecosystem of disciplines.',
+    description: 'Architecture · Music · Art — a dashboard of disciplines.',
   },
 };
 

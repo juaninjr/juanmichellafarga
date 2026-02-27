@@ -6,10 +6,10 @@ interface FooterProps {
 }
 
 const socialLinks = [
-  { label: 'Email', href: 'mailto:hello@whoisjuanmichel.com' },
-  { label: 'Instagram', href: '#' },
-  { label: 'LinkedIn', href: '#' },
-  { label: 'Spotify', href: '#' },
+  { label: 'Email', href: 'juanmichellafarga@gmail.com' },
+  { label: 'Instagram', href: 'https://www.instagram.com/emisitoooooooo' },
+  { label: 'LinkedIn', href: 'www.linkedin.com/in/juan-michel-lafarga' },
+  { label: 'Spotify', href: 'https://open.spotify.com/artist/5GodXx8Ksi0sI9nr4CJAle?si=0r2M6b0PS_OLDpI46gDbLA' },
 ];
 
 export default function Footer({}: FooterProps) {
@@ -45,7 +45,7 @@ export default function Footer({}: FooterProps) {
             href="/"
             className="text-xs text-theme-muted hover:text-theme-fg transition-colors font-mono"
           >
-            Full ecosystem →
+            Full dashboard →
           </Link>
         </div>
       </div>

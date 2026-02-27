@@ -42,6 +42,10 @@ export interface CVEntry {
   location: string;
   startYear: number;
   endYear: number | 'present';
+  /** Override the displayed date, e.g. 'Sept 2025' — replaces the default year range */
+  periodLabel?: string;
+  /** Optional duration string shown after periodLabel, e.g. '1 month' */
+  durationLabel?: string;
   description?: string;
 }
 
@@ -236,7 +240,7 @@ export const cvEntries: CVEntry[] = [
     location: 'Cambridge, United Kingdom',
     startYear: 2023,
     endYear: 'present',
-    description: 'Studio, Structures I & II, Materials & Construction I & II, Sustainable Design I & II, Urbanism, Sound in Architecture, Gardens & Landscapes. Robinson College.',
+    description: 'Trained to work under tight constraints through iterative design, developing solutions that balance concept, function, and feasibility. Gained fluency in architectural language, technical systems, and critical evaluation, producing work that is both rigorous and adaptable.Courses Include:Studio, Structures, Materials & Construction, Sustainable Design, Urbanism, Sound in Architecture, Gardens & Landscapes. Student at Robinson College.',
   },
   {
     id: 'cv1b',
@@ -256,6 +260,8 @@ export const cvEntries: CVEntry[] = [
     location: 'A Coruña, Spain',
     startYear: 2025,
     endYear: 2025,
+    periodLabel: 'Sept 2025',
+    durationLabel: '1 month',
     description: 'Provided technical assistance and client-facing solutions on system specifications. Supported validation tests and experiments of architectural systems. Applied calculation methods and regulatory compliance checks (CTE). Trained in specialized industry software (Alcorsa, Cortizolab, Cortizocenter).',
   },
   {
@@ -276,6 +282,8 @@ export const cvEntries: CVEntry[] = [
     location: 'Karlsruhe, Germany',
     startYear: 2024,
     endYear: 2024,
+    periodLabel: 'July 2024',
+    durationLabel: '1 month',
     description: 'Designed and installed countertop/front desk in a dental clinic. Built countertop and shelving unit for a school. Conducted flooring and repair work in schools, hospitals, and private homes.',
   },
   {
@@ -510,7 +518,7 @@ export const performances: Performance[] = [
     date: '2024-03-22',
     role: 'Support Act & Show Sound Engineer',
     isFeatured: true,
-    photo: '/images/music/bassement.png',
+    photo: '/images/music/IMG_4526.jpg',
     program: [],
   },
   {

@@ -14,7 +14,7 @@ export default function CVPage() {
     <div style={{ backgroundColor: '#f8f7f3', color: '#0a0a0a', minHeight: '100vh' }}>
       <Navigation mode="landing" />
       <main className="pt-14">
-        <CVSection variant="featured" entries={cvEntries} courses={courses} standalone />
+        <CVSection variant="featured" entries={cvEntries} courses={courses} persona="architect" isOnCVPage />
       </main>
       <Footer />
     </div>

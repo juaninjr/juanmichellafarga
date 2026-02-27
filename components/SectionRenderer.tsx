@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { PersonaConfig, PersonaSlug, SectionId, SectionVariant } from '@/lib/personas';
 import {
   studioProjects,
@@ -14,6 +15,7 @@ import CoursesSection from '@/components/sections/CoursesSection';
 import ClientMusicSection from '@/components/sections/ClientMusicSection';
 import PerformancesSection from '@/components/sections/PerformancesSection';
 import ArtSection from '@/components/sections/ArtSection';
+import VarsityPopup from '@/components/VarsityPopup';
 
 interface SectionRendererProps {
   config: PersonaConfig;
@@ -35,6 +37,38 @@ export default function SectionRenderer({ config }: SectionRendererProps) {
 
     return (
       <div>
+        {/* ── Musician nav bar: desktop back-to-dashboard + mobile section tabs ── */}
+        <div
+          className="flex items-center border-b border-theme-border"
+          style={{ backgroundColor: 'var(--color-bg)', height: '44px', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}
+        >
+          {/* Desktop: back to dashboard */}
+          <Link
+            href="/"
+            className="hidden md:inline-flex items-center font-mono text-theme-muted hover:text-theme-fg transition-colors"
+            style={{ fontSize: '0.62rem', letterSpacing: '0.14em', textDecoration: 'none' }}
+          >
+            ← Dashboard
+          </Link>
+          {/* Mobile only: Live + Studio section tabs */}
+          <div className="flex md:hidden items-center" style={{ flex: 1 }}>
+            <a
+              href="#performances"
+              className="font-mono uppercase text-theme-muted hover:text-theme-fg transition-colors"
+              style={{ fontSize: '0.6rem', letterSpacing: '0.2em', padding: '0 1rem', height: '44px', display: 'flex', alignItems: 'center', borderRight: '1px solid var(--color-border)', textDecoration: 'none' }}
+            >
+              Live
+            </a>
+            <a
+              href="#client-music"
+              className="font-mono uppercase text-theme-muted hover:text-theme-fg transition-colors"
+              style={{ fontSize: '0.6rem', letterSpacing: '0.2em', padding: '0 1rem', height: '44px', display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+            >
+              Studio
+            </a>
+          </div>
+        </div>
+        <VarsityPopup />
         <div className="flex flex-col lg:flex-row" style={{ borderTop: '1px solid var(--color-border)' }}>
           {perfVariant !== 'hidden' && (
             <div className="flex-1 min-w-0 lg:border-r" style={{ borderColor: 'var(--color-border)' }}>

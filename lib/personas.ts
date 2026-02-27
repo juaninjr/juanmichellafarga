@@ -56,8 +56,8 @@ export const PERSONAS: Record<PersonaSlug, PersonaConfig> = {
     },
     sections: [
       { id: 'studio',        variant: 'featured',  order: 1 },
-      { id: 'cv',            variant: 'featured',  order: 2 },
-      { id: 'courses',       variant: 'standard',  order: 3 },
+      { id: 'cv',            variant: 'compact',   order: 2 },
+      { id: 'courses',       variant: 'hidden',    order: 3 },
       { id: 'client-music',  variant: 'hidden',    order: 4 },
       { id: 'performances',  variant: 'hidden',    order: 5 },
       { id: 'art',           variant: 'hidden',    order: 6 },

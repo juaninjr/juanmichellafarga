@@ -21,9 +21,11 @@ export default function Navigation({ mode, persona }: NavigationProps) {
   }, []);
 
   // Visible sections for persona nav (non-hidden)
+  // Architect: only show CV in nav, not Studio (studio fills the whole page)
   const navSections: SectionId[] = persona
     ? PERSONAS[persona].sections
         .filter((s) => s.variant !== 'hidden')
+        .filter((s) => !(persona === 'architect' && s.id === 'studio'))
         .sort((a, b) => a.order - b.order)
         .slice(0, 5)
         .map((s) => s.id)
