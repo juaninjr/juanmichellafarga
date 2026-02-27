@@ -206,7 +206,7 @@ export const studioProjects: StudioProject[] = [
  
   {
     id: 's4',
-    title: 'Landquiitecture',
+    title: 'Landquitecture',
     studio: 'University Design Studio I',
     semester: 'Spring 2024',
     year: 2024,
@@ -240,7 +240,10 @@ export const cvEntries: CVEntry[] = [
     location: 'Cambridge, United Kingdom',
     startYear: 2023,
     endYear: 'present',
-    description: 'Trained to work under tight constraints through iterative design, developing solutions that balance concept, function, and feasibility. Gained fluency in architectural language, technical systems, and critical evaluation, producing work that is both rigorous and adaptable.Courses Include:Studio, Structures, Materials & Construction, Sustainable Design, Urbanism, Sound in Architecture, Gardens & Landscapes. Student at Robinson College.',
+    description: `
+    Trained to work under tight constraints through iterative design, developing solutions that balance concept, function, and feasibility. Gained fluency in architectural language, technical systems, and critical evaluation, producing work that is both rigorous and adaptable.
+    Courses Include: Studio, Structures, Materials & Construction, Sustainable Design, Urbanism, Sound in Architecture, Gardens & Landscapes.
+    Student at Robinson College.`,
   },
   {
     id: 'cv1b',

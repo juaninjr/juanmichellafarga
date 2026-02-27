@@ -8,7 +8,7 @@ interface FooterProps {
 const socialLinks = [
   { label: 'Email', href: 'juanmichellafarga@gmail.com' },
   { label: 'Instagram', href: 'https://www.instagram.com/emisitoooooooo' },
-  { label: 'LinkedIn', href: 'www.linkedin.com/in/juan-michel-lafarga' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juan-michel-lafarga/' },
   { label: 'Spotify', href: 'https://open.spotify.com/artist/5GodXx8Ksi0sI9nr4CJAle?si=0r2M6b0PS_OLDpI46gDbLA' },
 ];
 

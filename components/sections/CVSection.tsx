@@ -553,7 +553,7 @@ export default function CVSection({ variant, entries, courses, persona, isOnCVPa
           <div className="max-w-content mx-auto px-6 md:px-10 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             {/* TODO: replace /docs/portfolio.pdf with the actual portfolio PDF path */}
             <a
-              href="/docs/portfolio.pdf"
+              href="/docs/Full_Portfolio_JuanMichel.pdf"
               download="Juan_Michel_Lafarga_Portfolio.pdf"
               className="font-mono uppercase transition-all"
               style={{ fontSize: '0.62rem', letterSpacing: '0.18em', padding: '11px 22px', border: '1px solid #0a0a0a', color: '#0a0a0a', textDecoration: 'none', display: 'inline-block' }}
