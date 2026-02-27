@@ -324,7 +324,7 @@ export const cvEntries: CVEntry[] = [
     id: 'cv4',
     type: 'experience',
     title: 'Carpentry Intern',
-    institution: 'Carpintería Dimmler',
+    institution: 'Carpintery Dimmler',
     location: 'Karlsruhe, Germany',
     startYear: 2024,
     endYear: 2024,
