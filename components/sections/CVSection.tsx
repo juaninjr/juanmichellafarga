@@ -32,7 +32,7 @@ const PAPER_SECTIONS: PaperSectionDef[] = [
     label: 'EXPERIENCE',
     items: [
       { text: 'Aluminios Cortizo — Arch. & Eng. Intern · Sept 2025', detail: 'Cortizo is European leader for design and production of architectural aluminium structures. During my time there I offered technical assistance to clients on system specs. Learned about validation tests, regulatory compliance (CTE) and trained in software like Orgadata, Cortizolab & Cortizocenter. Duration: 1 month.' },
-      { text: 'Carpintería Dimmler · Karlsruhe, 2024', detail: 'Designed and installed countertop in a dental clinic. Built shelving for a school. Flooring and repair in schools, hospitals, and private homes. 1 month.' },
+      { text: 'Carpintery Dimmler · Karlsruhe, 2024', detail: 'Designed and installed countertop in a dental clinic. Built shelving for a school. Flooring and repair in schools, hospitals, and private homes. 1 month.' },
       { text: 'PE Volunteer · Chame, Panama · 2024', detail: 'Delivered sports and games lessons to primary school students in a community school. 1 month.' },
       { text: 'Music & Creative Projects · 2020–present', detail: 'Sound & Production Engineer (Freelance). Produced, mixed and mastered 100+ tracks. 20M+ streams with international artists. Event planning for concerts.' },
     ],
@@ -62,7 +62,7 @@ const PAPER_SECTIONS: PaperSectionDef[] = [
     id: 'extras',
     label: 'EXTRAS',
     items: [
-      { text: 'Piano · Municipal School of Music, Madrid', detail: '2013–2021. Award for Piano Excellence 2017.' },
+      { text: 'Piano · Municipal School of Music, Madrid', detail: '2013–2021. Award for Piano Excellence 2017, 2019.' },
       { text: 'Cambridge Rowing · M1', detail: '2024–2026. Cambridge University Rowing Club, Men\'s 1st team.' },
       { text: 'Harvard CS50x', detail: 'Computer Science course by Harvard University (online). Certificate 2023.' },
       { text: 'RIBA Skill Up', detail: 'Royal Institute of British Architects project. Certificate 2022.' },
@@ -256,7 +256,7 @@ function FullCVModal({ onClose }: { onClose: () => void }) {
           </span>
           <div className="flex items-center gap-3">
             <a
-              href="/docs/cvENG_dec2025.pdf"
+              href="/docs/cvfeb26.pdf"
               download="Juan_Michel_Lafarga_CV.pdf"
               className="font-mono uppercase tracking-widest transition-all"
               style={{ fontSize: '0.52rem', letterSpacing: '0.2em', padding: '6px 14px', border: '1px solid rgba(255,255,255,0.13)', color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}
@@ -277,7 +277,7 @@ function FullCVModal({ onClose }: { onClose: () => void }) {
             </button>
           </div>
         </div>
-        <iframe src="/docs/cvENG_dec2025.pdf" style={{ flex: 1, border: 'none', width: '100%', backgroundColor: '#fff' }} title="Juan Michel Lafarga — CV" />
+        <iframe src="/docs/cvfeb26.pdf" style={{ flex: 1, border: 'none', width: '100%', backgroundColor: '#fff' }} title="Juan Michel Lafarga — CV" />
       </motion.div>
     </motion.div>
   );

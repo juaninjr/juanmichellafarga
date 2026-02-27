@@ -17,7 +17,8 @@ function isStudio(item: FolderItem): item is StudioProject {
   return 'coverImage' in item;
 }
 
-// Pages are image paths, or 'pdf:/docs/...' for inline PDF pages
+// Pages are: image paths, 'pdf:/docs/...' for inline PDF, 'video:/videos/...' for video.
+// Add video slides via images[] using the 'video:' prefix, e.g. 'video:/videos/carp1.mp4'
 function buildPages(item: FolderItem): string[] {
   if (isStudio(item)) {
     const pages = [item.coverImage, ...(item.images ?? [])];
@@ -25,6 +26,18 @@ function buildPages(item: FolderItem): string[] {
     return pages;
   }
   return [item.image];
+}
+
+// Returns per-slide captions aligned to buildPages output.
+// Set captions[] on StudioProject: captions[0] = coverImage caption, captions[1] = images[0], etc.
+function buildCaptions(item: FolderItem): (string | undefined)[] {
+  if (isStudio(item)) {
+    const allImages = [item.coverImage, ...(item.images ?? [])];
+    const caps = allImages.map((_, i) => item.captions?.[i]);
+    if (item.pdfUrl) caps.push(undefined);
+    return caps;
+  }
+  return [undefined];
 }
 
 // Subtle half-page slide
@@ -47,6 +60,7 @@ const pageVariants = {
 
 export default function ProjectViewer({ item, layoutId, onClose }: ProjectViewerProps) {
   const pages = buildPages(item);
+  const captions = buildCaptions(item);
   const [page, setPage] = useState(0);
   const [dir, setDir] = useState(1);
 
@@ -71,6 +85,9 @@ export default function ProjectViewer({ item, layoutId, onClose }: ProjectViewer
   const studio = isStudio(item) ? item : null;
   const artItem = !studio && 'medium' in item ? (item as ArtPiece) : null;
   const hasMultiplePages = pages.length > 1;
+  const currentSrc = pages[page];
+  const isPDF = currentSrc.startsWith('pdf:');
+  const isVideo = currentSrc.startsWith('video:');
 
   return (
     <motion.div
@@ -90,8 +107,9 @@ export default function ProjectViewer({ item, layoutId, onClose }: ProjectViewer
 
       <div className="flex flex-col md:flex-row md:h-full">
 
-        {/* ── Image area — LEFT on desktop, TOP on mobile ── */}
-        <div className="relative overflow-hidden h-[55vh] md:h-auto md:flex-1">
+        {/* ── Image/Video/PDF area — LEFT on desktop, TOP on mobile ── */}
+        {/* md:h-full gives the area a definite height so absolute children (PDF iframe, video) fill correctly */}
+        <div className="relative overflow-hidden h-[55vh] md:h-full md:flex-1">
           <AnimatePresence custom={dir} mode="wait">
             <motion.div
               key={page}
@@ -102,17 +120,33 @@ export default function ProjectViewer({ item, layoutId, onClose }: ProjectViewer
               exit="exit"
               className="absolute inset-0"
             >
-              {pages[page].startsWith('pdf:') ? (
+              {isPDF ? (
                 <iframe
-                  src={pages[page].slice(4)}
-                  className="w-full h-full"
-                  style={{ border: 'none', backgroundColor: '#fff' }}
+                  src={currentSrc.slice(4)}
+                  style={{ width: '100%', height: '100%', border: 'none', backgroundColor: '#fff', display: 'block' }}
                   title={`${item.title} — PDF`}
+                />
+              ) : isVideo ? (
+                <video
+                  key={currentSrc}
+                  src={currentSrc.slice(6)}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    backgroundColor: '#0a0a0a',
+                  }}
                 />
               ) : (
                 <>
                   <Image
-                    src={pages[page]}
+                    src={currentSrc}
                     alt={`${item.title} — ${page + 1}`}
                     fill
                     className="object-contain"
@@ -122,12 +156,32 @@ export default function ProjectViewer({ item, layoutId, onClose }: ProjectViewer
                   <div className="absolute inset-0 -z-10" style={{ background: 'linear-gradient(135deg, #111, #1e1e1e)' }} />
                 </>
               )}
+
               {/* Page counter */}
               {hasMultiplePages && (
                 <div className="absolute top-5 left-5">
                   <span className="font-mono text-[10px] uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.28)' }}>
-                    {pages[page].startsWith('pdf:') ? 'PDF' : `${page + 1} / ${pages.length}`}
+                    {isPDF ? 'PDF' : isVideo ? '▶' : `${page + 1} / ${pages.length}`}
                   </span>
+                </div>
+              )}
+
+              {/* Slide caption — shown in the grey space below/around the image */}
+              {captions[page] && !isPDF && (
+                <div
+                  className="absolute bottom-0 left-0 right-0"
+                  style={{
+                    padding: '1.5rem 1.5rem 1rem',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%)',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  <p
+                    className="font-mono"
+                    style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.06em', lineHeight: 1.6 }}
+                  >
+                    {captions[page]}
+                  </p>
                 </div>
               )}
             </motion.div>

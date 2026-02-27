@@ -51,7 +51,7 @@ export default function SectionRenderer({ config }: SectionRendererProps) {
             ← Dashboard
           </Link>
           {/* Mobile only: Live + Studio section tabs */}
-          <div className="flex md:hidden items-center" style={{ flex: 1 }}>
+          <div className="flex md:hidden items-center justify-center" style={{ flex: 1 }}>
             <a
               href="#performances"
               className="font-mono uppercase text-theme-muted hover:text-theme-fg transition-colors"

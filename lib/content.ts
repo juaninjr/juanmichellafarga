@@ -19,6 +19,12 @@ export interface StudioProject {
   /** Optional: PDF of the project — shown as final page in viewer. Place in /public/docs/ */
   pdfUrl?: string;
   awards?: string[];
+  /**
+   * Optional per-slide captions shown in the grey space below each image in the viewer.
+   * captions[0] matches coverImage, captions[1] matches images[0], etc.
+   * Videos: prefix the path in images[] with 'video:' e.g. 'video:/videos/carp1.mp4'
+   */
+  captions?: string[];
 }
 
 export interface Paper {
@@ -160,6 +166,18 @@ export const studioProjects: StudioProject[] = [
        '/images/studio/FC/FC6.png'],
     // videoUrl: '/videos/studio/FuturisticClubhouse.mp4',   ← add video here
     // images: ['/images/studio/FuturisticClubhouse_01.jpg'], ← add extra pages here
+    captions: [
+      '3d model render of entire clubhouse (West view)',
+      'Interior pool area render',
+      'Spa area render',
+      'Physical Model 1:100 (removable roof and rotating modular body)',
+      'Model close up 1:100',
+      'Initial idea iteration process (scribbles are condensed expressions of the form in its most reduced state)',
+      'Plan tests iterations',
+      'Collage on painting of birds eye view of the site',
+      'Wassily Kandinsky inspired painting of main elements of the view the visitor has as they approach the building',
+      'Light tests and precedent analysis for the west facade facing the golf course and countryside',
+    ]
   },
   {
     id: 's3',
@@ -174,6 +192,18 @@ export const studioProjects: StudioProject[] = [
     images: ['/images/studio/wing/WING12.png','/images/studio/wing/WING8.png','/images/studio/wing/Wing9.png',
       '/images/studio/wing/Wing11.png','/images/studio/wing/Wing7.png','/images/studio/wing/Wing13.png','/images/studio/wing/Wing10.png',
       '/images/studio/wing/Wing5.png','/images/studio/wing/Wing14.png'],
+    captions: [
+      'The perforated stone tiles let light in in unexpected ways, so the atmosphere in the foyer is always dynamic and surprising (Unreal Engine render)',
+      'View from street of the tile "crescendo" (Unreal Engine render)',
+      'Progressive stone tile arrangement from Rhino model',
+      'Rhino views of inside of theatre space',
+      'The building has two wings, an open perforated one as a foyer and a closed and dark one for a flexible theatrical performance space',
+      'Inhabitated foyer (Unreal Engine Render)',
+      'Entrance facade mimics the existing bricks, but with a contemporary twist in monochrome material hues (Unreal Engine render)',
+      'View from back bridge between foyer and theatre space (render & collage)',
+      'Physical Section model showing the relationship between the two wings and the circulation through the building, and basement access on stage (dynamic lighting system included)',
+      'Inhabited theatre space during a kids show (Unreal Engine render)',
+    ]
     // images: ['/images/studio/TheWing_plans.jpg'],          ← add extra pages here
   },
    {
@@ -187,6 +217,14 @@ export const studioProjects: StudioProject[] = [
     coverImage: '/images/studio/playtroll1.png',
     pdfUrl: '/docs/PlaytrollStation.pdf',
     images: ['/images/studio/playtrolA.png', '/images/studio/playtrolB.png', '/images/studio/playtroll2.png', '/images/studio/playtroll3.png', '/images/studio/playtroll4.png'],
+    captions: [
+      'The slide is both a play resource structure and a cover for the bus stop (Unreal Engine render + collage)',
+      'View from street BEFORE intervention',
+      'View from street AFTER intervention',
+      'Physical model views 1:100',
+      'Cafe area is glazed so parents can overwatch their kids playing outside while having a coffee (Unreal Engine render)',
+      'Kids playing in the slide area (Unreal Engine render + collage)',
+    ]
     // videoUrl: '/videos/studio/PlaytrollStation.mp4',       ← add video here
   },
   {
@@ -197,11 +235,15 @@ export const studioProjects: StudioProject[] = [
     year: 2024,
     description: 'A lightweight public pavilion in the shape of a carp, designed to be assembled and disassembled seasonally in a city park and having a big open floor.',
     tags: ['Cultural', 'Urban', 'Public Space'],
-    coverImage: '/images/studio/fig_image_12_64.png',
+    coverImage: '/images/studio/carp/fig_image_12_64.png',
     pdfUrl: '/docs/TheCarpProject.pdf',
-    videoUrl: '/videos/carp1.mp4',
-   
-    // images: ['/images/studio/TheCarp_section.jpg'],        ← add extra pages here
+    images: ['video:/videos/carp1.mp4','/images/studio/carp/carp3.png','/images/studio/carp/carp2.png',],
+    captions:[
+      'Top view of the carp with partial roof',
+      'The roof opens and closes to let light and air in. In this model a manual pulley system is put in place so it can be actioned from the ground',
+      'Open roof vs closed roof (top views)',
+      'Open roof side view']
+    // images: ['/images/studio/TheCarp_section.jpg''video:/videos/carp1.mp4',],        ← add extra pages here
   },
  
   {
@@ -253,7 +295,7 @@ export const cvEntries: CVEntry[] = [
     location: 'Madrid, Spain',
     startYear: 2009,
     endYear: 2023,
-    description: 'English/Spanish bilingual programme. BiBac Prize 2023, Academic Excellence Prize 2017.',
+    description: 'English/Spanish bilingual programme. BiBac Prize 2023, Academic Excellence Prize 2017, 2019.',
   },
   {
     id: 'cv2',
@@ -378,16 +420,7 @@ export const courses: Course[] = [
     category: 'Computer Science',
     certificateUrl: '#',
   },
-  
-  {
-    id: 'c4',
-    title: 'RIBA Skill Up Project',
-    provider: 'Royal Institute of British Architects',
-    year: 2022,
-    category: 'Architecture',
-    certificateUrl: '#',
-  },
-  {
+    {
     id: 'c5',
     title: 'Divemaster',
     provider: 'PADI',
@@ -395,6 +428,15 @@ export const courses: Course[] = [
     category: 'Sport',
     certificateUrl: '#',
   },
+  {
+    id: 'c4',
+    title: 'RIBA Skill Up Project',
+    provider: 'Royal Institute of British Architects',
+    year: 2022,
+    category: 'Architecture',
+    
+  },
+
 ];
 
 export const musicProjects: MusicProject[] = [

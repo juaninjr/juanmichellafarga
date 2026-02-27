@@ -124,7 +124,7 @@ function MusicianLiveView({ performances, column }: { performances: Performance[
 
   if (column) {
     return (
-      <section id="performances" className="section-featured">
+      <section id="performances" style={{ paddingTop: '2.5rem', paddingBottom: '4rem' }}>
         <div className="px-6 md:px-8 lg:px-10">{inner}</div>
       </section>
     );

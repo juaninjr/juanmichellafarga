@@ -155,7 +155,7 @@ function MusicianStudioView({ projects, column }: { projects: MusicProject[]; co
 
   if (column) {
     return (
-      <section id="client-music" className="section-featured">
+      <section id="client-music" style={{ paddingTop: '2.5rem', paddingBottom: '4rem' }}>
         <div className="px-6 md:px-8 lg:px-10">{inner}</div>
       </section>
     );
