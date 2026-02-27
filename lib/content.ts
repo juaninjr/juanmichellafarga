@@ -62,6 +62,7 @@ export interface Course {
   year: number;
   category: string;
   certificateUrl?: string;
+  description?: string;
 }
 
 export type MusicCredit = 'Mixed' | 'Mastered' | 'Produced' | 'Written';
@@ -419,6 +420,7 @@ export const courses: Course[] = [
     year: 2025,
     category: 'Computer Science',
     certificateUrl: '#',
+    description: 'Gained proficiency in algorithms, data structures, programming (C, Python, SQL, JavaScript) andcomputational thinking. 10 weeks + final project (implementation of web application with database)',
   },
     {
     id: 'c5',
@@ -427,6 +429,7 @@ export const courses: Course[] = [
     year: 2025,
     category: 'Sport',
     certificateUrl: '#',
+    description: 'Professional diving qualification. Training in dive leadership, safety, and rescue. Experience in guiding certified divers and assisting instructors.',
   },
   {
     id: 'c4',

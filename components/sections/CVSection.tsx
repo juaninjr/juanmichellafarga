@@ -340,6 +340,123 @@ function PaperView({ onOpenModal }: { onOpenModal: () => void }) {
   );
 }
 
+// ── Clickable course tag pill with expandable description ─────────────────────
+function CourseTag({ course }: { course: Course }) {
+  const [open, setOpen] = useState(false);
+  const hasDesc = !!course.description;
+
+  return (
+    <div>
+      <button
+        onClick={() => hasDesc && setOpen((o) => !o)}
+        className="font-mono"
+        style={{
+          fontSize: '0.6rem',
+          padding: '4px 10px',
+          border: `1px solid ${open ? '#999' : '#ddd'}`,
+          color: open ? '#0a0a0a' : '#555',
+          background: open ? '#f5f2ed' : 'none',
+          cursor: hasDesc ? 'pointer' : 'default',
+          transition: 'border-color 0.15s ease, color 0.15s ease, background 0.15s ease',
+        }}
+      >
+        {course.title}
+        {hasDesc && (
+          <span style={{ marginLeft: 5, color: '#bbb', display: 'inline-block', transition: 'transform 0.2s ease', transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span>
+        )}
+      </button>
+      <AnimatePresence initial={false}>
+        {open && course.description && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            style={{ overflow: 'hidden' }}
+          >
+            <p
+              className="font-mono"
+              style={{ fontSize: '0.55rem', color: '#888', lineHeight: 1.6, padding: '6px 4px 4px 10px', borderLeft: '1px solid #e0dbd4', marginTop: 4, maxWidth: '34ch' }}
+            >
+              {course.provider} · {course.year}
+            </p>
+            <p
+              className="text-sm"
+              style={{ fontSize: '0.58rem', color: '#666', lineHeight: 1.6, padding: '0 4px 4px 10px', borderLeft: '1px solid #e0dbd4', maxWidth: '34ch' }}
+            >
+              {course.description}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// ── Collapsible section wrapper for ArchitectTimeline ─────────────────────────
+function CollapsibleTimelineSection({ label, defaultOpen, children }: { label: string; defaultOpen?: boolean; children: React.ReactNode }) {
+  const [open, setOpen] = useState(defaultOpen ?? true);
+
+  return (
+    <div className="mb-8">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between font-mono uppercase mb-4"
+        style={{ fontSize: '0.58rem', letterSpacing: '0.2em', color: '#999', background: 'none', borderTop: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: '1px solid #e8e4de', cursor: 'pointer', padding: '0 0 0.5rem 0', width: '100%' }}
+      >
+        {label}
+        <span style={{ fontSize: '0.75rem', color: '#bbb', userSelect: 'none', transition: 'transform 0.2s ease', display: 'inline-block', transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}>
+          +
+        </span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+            style={{ overflow: 'hidden' }}
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// ── Expandable certification row (identical expand behaviour to TimelineRow) ───
+function CertRow({ cert, isLast }: { cert: Course; isLast: boolean }) {
+  const [open, setOpen] = useState(false);
+  const hasDesc = !!cert.description;
+
+  return (
+    <div
+      className="pb-6 min-w-0"
+      onClick={() => hasDesc && setOpen((o) => !o)}
+      style={{ cursor: hasDesc ? 'pointer' : 'default', borderBottom: isLast ? 'none' : '1px solid #f0ece6' }}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h3 className="font-bold leading-snug" style={{ fontSize: '0.92rem', color: '#0a0a0a' }}>{cert.title}</h3>
+          <p className="font-mono mt-0.5" style={{ fontSize: '0.58rem', color: '#999' }}>{cert.provider} · {cert.year}</p>
+        </div>
+        {hasDesc && (
+          <span style={{ color: '#bbb', fontSize: '0.75rem', flexShrink: 0, marginTop: 2, userSelect: 'none' }}>
+            {open ? '−' : '+'}
+          </span>
+        )}
+      </div>
+      {open && cert.description && (
+        <p className="text-sm mt-3 leading-relaxed" style={{ color: '#666', maxWidth: '52ch' }}>
+          {cert.description}
+        </p>
+      )}
+    </div>
+  );
+}
+
 // ── LinkedIn-style timeline (architect persona inline) ─────────────────────────
 function dur(start: number, end: number | 'present'): string {
   const e = end === 'present' ? new Date().getFullYear() : end;
@@ -479,20 +596,14 @@ function ArchitectTimeline({ entries, courses, isOnCVPage }: { entries: CVEntry[
           {/* Left: Timeline */}
           <div>
             {education.length > 0 && (
-              <div className="mb-8">
-                <p className="font-mono uppercase mb-4" style={{ fontSize: '0.58rem', letterSpacing: '0.2em', color: '#999', borderBottom: '1px solid #e8e4de', paddingBottom: '0.5rem' }}>
-                  Education
-                </p>
+              <CollapsibleTimelineSection label="Education" defaultOpen>
                 {education.map((e, i) => <TimelineRow key={e.id} entry={e} isLast={i === education.length - 1} />)}
-              </div>
+              </CollapsibleTimelineSection>
             )}
             {experience.length > 0 && (
-              <div>
-                <p className="font-mono uppercase mb-4" style={{ fontSize: '0.58rem', letterSpacing: '0.2em', color: '#999', borderBottom: '1px solid #e8e4de', paddingBottom: '0.5rem' }}>
-                  Experience
-                </p>
+              <CollapsibleTimelineSection label="Experience" defaultOpen>
                 {experience.map((e, i) => <TimelineRow key={e.id} entry={e} isLast={i === experience.length - 1} />)}
-              </div>
+              </CollapsibleTimelineSection>
             )}
           </div>
 
@@ -505,32 +616,19 @@ function ArchitectTimeline({ entries, courses, isOnCVPage }: { entries: CVEntry[
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {skills.map((c) => (
-                    <span key={c.id} className="font-mono" style={{ fontSize: '0.6rem', padding: '4px 10px', border: '1px solid #ddd', color: '#555' }}>
-                      {c.title}
-                    </span>
+                    <CourseTag key={c.id} course={c} />
                   ))}
                 </div>
               </div>
             )}
             {certs.length > 0 && (
-              <div>
-                <p className="font-mono uppercase mb-4" style={{ fontSize: '0.58rem', letterSpacing: '0.2em', color: '#999', borderBottom: '1px solid #e8e4de', paddingBottom: '0.5rem' }}>
-                  Certifications
-                </p>
-                <div className="space-y-3">
-                  {certs.map((c) => (
-                    <div key={c.id} className="flex items-start justify-between gap-4" style={{ borderBottom: '1px solid #f0ece6', paddingBottom: '0.75rem' }}>
-                      <div>
-                        <p className="font-bold leading-snug" style={{ fontSize: '0.92rem', color: '#0a0a0a' }}>{c.title}</p>
-                        <p className="font-mono mt-0.5" style={{ fontSize: '0.58rem', color: '#999' }}>{c.provider} · {c.year}</p>
-                      </div>
-                      <a href={c.certificateUrl} target="_blank" rel="noopener" className="font-mono hover:underline shrink-0" style={{ fontSize: '0.58rem', color: '#2c4a6e' }}>
-                        View ↗
-                      </a>
-                    </div>
+              <CollapsibleTimelineSection label="Certifications" defaultOpen>
+                <div>
+                  {certs.map((c, i) => (
+                    <CertRow key={c.id} cert={c} isLast={i === certs.length - 1} />
                   ))}
                 </div>
-              </div>
+              </CollapsibleTimelineSection>
             )}
           </div>
         </div>
