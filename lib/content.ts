@@ -420,7 +420,7 @@ export const courses: Course[] = [
     year: 2025,
     category: 'Computer Science',
     certificateUrl: '#',
-    description: 'Gained proficiency in algorithms, data structures, programming (C, Python, SQL, JavaScript) andcomputational thinking. 10 weeks + final project (implementation of web application with database)',
+    description: 'Gained proficiency in algorithms, data structures, programming (C, Python, SQL, JavaScript) and computational thinking. 10 weeks + final project (implementation of web application with database)',
   },
     {
     id: 'c5',
