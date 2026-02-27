@@ -11,8 +11,11 @@ interface NavigationProps {
   persona?: PersonaSlug;
 }
 
+const EMAIL = 'juanmichellafarga@gmail.com';
+
 export default function Navigation({ mode, persona }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
@@ -81,12 +84,34 @@ export default function Navigation({ mode, persona }: NavigationProps) {
             <PersonaSwitcher currentSlug={persona} />
           )}
           {mode === 'landing' && (
-            <Link
-              href="mailto:hello@whoisjuanmichel.com"
-              className="text-xs font-mono tracking-wide text-theme-muted hover:text-theme-fg transition-colors"
-            >
-              Contact
-            </Link>
+            <div className="relative">
+              <button
+                onClick={() => setShowEmail((v) => !v)}
+                className="text-xs font-mono tracking-wide text-theme-muted hover:text-theme-fg transition-colors"
+                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+              >
+                Contact
+              </button>
+              {showEmail && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setShowEmail(false)} />
+                  <div
+                    className="absolute top-full right-0 mt-2 z-50"
+                    style={{
+                      backgroundColor: 'var(--color-bg)',
+                      border: '1px solid var(--color-border)',
+                      padding: '10px 14px',
+                      whiteSpace: 'nowrap',
+                      boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
+                    }}
+                  >
+                    <p className="font-mono text-xs" style={{ color: 'var(--color-fg)' }}>
+                      {EMAIL}
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
           )}
         </div>
       </div>
