@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Leave ARTICLE_IMAGE empty to show a styled text placeholder.
 // ─────────────────────────────────────────────────────────────────────────────
 const ARTICLE_URL = 'https://www.varsity.co.uk/interviews/30887'; // Replace with the actual Varsity article URL
-const ARTICLE_IMAGE = '/images/music/bcn_foto_1.jpg'; // e.g. '/images/varsity-preview.jpg'
+const ARTICLE_IMAGE = '/images/music/varsity.png'; // e.g. '/images/varsity-preview.jpg'
 // ─────────────────────────────────────────────────────────────────────────────
 
 const BANNER_H = 104;
