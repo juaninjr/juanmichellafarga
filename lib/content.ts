@@ -190,7 +190,7 @@ export const studioProjects: StudioProject[] = [
     tags: ['Infrastructure', 'Light'],
     coverImage: '/images/studio/thewingsnap.png',
     pdfUrl: '/docs/TheWing.pdf',
-    images: ['/images/studio/wing/WING12.png','/images/studio/wing/WING8.png','/images/studio/wing/Wing9.png',
+    images: ['/images/studio/wing/Wing12.png','/images/studio/wing/Wing8.png','/images/studio/wing/Wing9.png',
       '/images/studio/wing/Wing11.png','/images/studio/wing/Wing7.png','/images/studio/wing/Wing13.png','/images/studio/wing/Wing10.png',
       '/images/studio/wing/Wing5.png','/images/studio/wing/Wing14.png'],
     captions: [

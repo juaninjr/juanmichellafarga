@@ -576,7 +576,7 @@ function ArchitectTimeline({ entries, courses, isOnCVPage }: { entries: CVEntry[
               </Link>
             )}
             <a
-              href="/docs/cvENG_dec2025.pdf"
+              href="/docs/cvfeb26.pdf"
               download="Juan_Michel_Lafarga_CV.pdf"
               className="font-mono uppercase transition-all inline-block"
               style={{ fontSize: '0.52rem', letterSpacing: '0.18em', padding: '7px 13px', border: '1px solid #ccc', color: '#777', textDecoration: 'none' }}
