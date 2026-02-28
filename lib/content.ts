@@ -85,6 +85,8 @@ export interface MusicProject {
 
   /** Direct Spotify link */
   spotifyUrl?: string;
+  /** YouTube link (video, album, etc.) */
+  youtubeUrl?: string;
   /** Legacy listen link */
   listenUrl?: string;
   /** Which production credits apply */
@@ -443,11 +445,25 @@ export const courses: Course[] = [
 ];
 
 export const musicProjects: MusicProject[] = [
- 
+ {
+    id: 'm8',
+    artistName: 'emisito',
+    title: 'Beatles',
+    year: 2025,
+    role: 'Artist',
+    description: 'single',
+    genres: ['Pop Rock', 'Alternative'],
+    isPublic: true,
+    isOwn: true,
+    credits: ['Written', 'Produced', 'Mixed', 'Mastered'],
+    coverImage: '/images/music/beatles.png',
+    spotifyUrl: 'https://open.spotify.com/album/6JvYtScmC39qp0P9Nsl4PH?si=WJPu7KJjSH-gMZSEpnsELA',
+    youtubeUrl: 'https://youtu.be/qNuKZNYiF_Y?si=zm8bDF424aTMFN-e',
+  },
   {
     id: 'm3',
     artistName: 'emisito',
-    title: 'Lo Único Que Me Queda',
+    title: 'Lo Único Que Me Queda (Album)',
     year: 2025,
     role: 'Artist',
     description: 'Debut Album',
@@ -456,12 +472,14 @@ export const musicProjects: MusicProject[] = [
     isOwn: true,
     credits: ['Written', 'Produced', 'Mixed', 'Mastered'],
     coverImage: '/images/music/LUQMQ_cover.png',
-    spotifyUrl: 'https://open.spotify.com/album/5EFbTkLk11AHvBUibtpNsh?si=UcEzA825ShyyoIZpNBWLsw'
+    spotifyUrl: 'https://open.spotify.com/album/5EFbTkLk11AHvBUibtpNsh?si=UcEzA825ShyyoIZpNBWLsw',
+    youtubeUrl: 'https://youtu.be/DwF-3AzUT0Y?si=d1W5rpTwW7UU7rMU',
   },
+  
   {
     id: 'm4',
     artistName: 'emisito & Magus',
-    title: 'SiGLo DeL KueRo',
+    title: 'SiGLo DeL KueRo (EP)',
     year: 2025,
     role: 'Artist',
     description: 'Confidential commercial project.',
@@ -471,11 +489,12 @@ export const musicProjects: MusicProject[] = [
     credits: ['Written', 'Produced', 'Mixed', 'Mastered'],
     coverImage: '/images/music/siglo.png',
     spotifyUrl: 'https://open.spotify.com/album/3do1jbURfvD6ctF5c7W53R?si=64mEO-o8SIqT53OnCJnNTg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=Gvcyqi-x0cg&list=RDGvcyqi-x0cg&start_radio=1',
   },
   {
     id: 'm5',
     artistName: 'Hemix',
-    title: 'Afterfever',
+    title: 'Afterfever (Album)',
     year: 2025,
     role: 'Artist',
     description: 'Post-Mayball ramblings',
@@ -485,11 +504,12 @@ export const musicProjects: MusicProject[] = [
     credits: ['Written', 'Produced', 'Mixed', 'Mastered'],
     coverImage: '/images/music/afterfever.png',
     spotifyUrl: 'https://open.spotify.com/album/40IqVJ4RDnU8FVUB3bFVCM?si=tEaFM7woR0ap-vALyyFSxA',
+    youtubeUrl: 'https://www.youtube.com/watch?v=8LBcWm96nbQ&list=OLAK5uy_mCgTzvQp37My9OC5R2XcwwTkYZK4ewaww',
   },
   {
     id: 'm5',
     artistName: 'Hemix',
-    title: 'Dont Expect To Understand',
+    title: 'Dont Expect To Understand (Album)',
     year: 2023,
     role: 'Artist',
     description: 'First ever album recorded',
@@ -517,7 +537,7 @@ export const musicProjects: MusicProject[] = [
   {
     id: 'm5',
     artistName: 'rickyedit',
-    title: 'eras to esto',
+    title: 'eras to esto (EP)',
     year: 2023,
     role: 'Mix Engineer',
     description: '3 track EP, sound design and creative mixing and mastering. Total of 10M+ streams.',
