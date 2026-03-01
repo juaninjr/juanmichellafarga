@@ -82,6 +82,17 @@ export default function ProjectViewer({ item, layoutId, onClose }: ProjectViewer
     return () => window.removeEventListener('keydown', handler);
   }, [onClose, next, prev]);
 
+  // Preload all image slides on mount so navigation is instant
+  useEffect(() => {
+    pages.forEach((src) => {
+      if (!src.startsWith('pdf:') && !src.startsWith('video:')) {
+        const img = new window.Image();
+        img.src = src;
+      }
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const studio = isStudio(item) ? item : null;
   const artItem = !studio && 'medium' in item ? (item as ArtPiece) : null;
   const hasMultiplePages = pages.length > 1;

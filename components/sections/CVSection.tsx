@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { SectionVariant, PersonaSlug } from '@/lib/personas';
 import type { CVEntry, CVEntryType, Course } from '@/lib/content';
@@ -277,7 +278,7 @@ function FullCVModal({ onClose }: { onClose: () => void }) {
             </button>
           </div>
         </div>
-        <iframe src="/docs/cvfeb26.pdf" style={{ flex: 1, border: 'none', width: '100%', backgroundColor: '#fff' }} title="Juan Michel Lafarga — CV" />
+        <iframe src="/docs/cvfeb26.pdf" style={{ flex: 1, height: 0, minHeight: 0, border: 'none', width: '100%', backgroundColor: '#fff' }} title="Juan Michel Lafarga — CV" />
       </motion.div>
     </motion.div>
   );
@@ -523,6 +524,7 @@ function TimelineRow({ entry, isLast }: { entry: CVEntry; isLast: boolean }) {
 
 function ArchitectTimeline({ entries, courses, isOnCVPage }: { entries: CVEntry[]; courses?: Course[]; isOnCVPage?: boolean }) {
   const [cvModalOpen, setCvModalOpen] = useState(false);
+  const router = useRouter();
   const education = entries.filter((e) => e.type === 'education');
   const experience = entries.filter((e) => e.type === 'experience');
   const skills = (courses ?? []).filter((c) => !c.certificateUrl);
@@ -534,15 +536,15 @@ function ArchitectTimeline({ entries, courses, isOnCVPage }: { entries: CVEntry[
         {/* Back to dashboard — only shown on /cv page */}
         {isOnCVPage && (
           <div style={{ marginBottom: '1.5rem' }}>
-            <Link
-              href="/"
+            <button
+              onClick={() => { setCvModalOpen(false); router.push('/'); }}
               className="font-mono transition-all"
-              style={{ fontSize: '0.6rem', letterSpacing: '0.14em', color: '#999', textDecoration: 'none' }}
+              style={{ fontSize: '0.6rem', letterSpacing: '0.14em', color: '#999', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#0a0a0a'; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#999'; }}
             >
               ← Dashboard
-            </Link>
+            </button>
           </div>
         )}
         {/* Header */}
