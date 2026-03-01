@@ -27,6 +27,10 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: 'Juan Michel',
   description: 'Architecture · Music · Art — a dashboard of disciplines.',
+  icons: {
+    icon: '/images/logoJM.png',
+    apple: '/images/logoJM.png',
+  },
   openGraph: {
     title: 'Juan Michel',
     description: 'Architecture · Music · Art — a dashboard of disciplines.',

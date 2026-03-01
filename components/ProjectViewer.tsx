@@ -189,7 +189,7 @@ export default function ProjectViewer({ item, layoutId, onClose }: ProjectViewer
                 >
                   <p
                     className="font-mono"
-                    style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.06em', lineHeight: 1.6 }}
+                    style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.06em', lineHeight: 1.6 }}
                   >
                     {captions[page]}
                   </p>
