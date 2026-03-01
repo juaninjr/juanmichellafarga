@@ -257,7 +257,7 @@ function FullCVModal({ onClose }: { onClose: () => void }) {
           </span>
           <div className="flex items-center gap-3">
             <a
-              href="/docs/cvfeb26.pdf"
+              href="/docs/CVfeb26.pdf"
               download="Juan_Michel_Lafarga_CV.pdf"
               className="font-mono uppercase tracking-widest transition-all"
               style={{ fontSize: '0.52rem', letterSpacing: '0.2em', padding: '6px 14px', border: '1px solid rgba(255,255,255,0.13)', color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}
@@ -278,7 +278,7 @@ function FullCVModal({ onClose }: { onClose: () => void }) {
             </button>
           </div>
         </div>
-        <iframe src="/docs/cvfeb26.pdf" style={{ flex: 1, height: 0, minHeight: 0, border: 'none', width: '100%', backgroundColor: '#fff' }} title="Juan Michel Lafarga — CV" />
+        <iframe src="/docs/CVfeb26.pdf" style={{ flex: 1, height: 0, minHeight: 0, border: 'none', width: '100%', backgroundColor: '#fff' }} title="Juan Michel Lafarga — CV" />
       </motion.div>
     </motion.div>
   );
@@ -578,7 +578,7 @@ function ArchitectTimeline({ entries, courses, isOnCVPage }: { entries: CVEntry[
               </Link>
             )}
             <a
-              href="/docs/cvfeb26.pdf"
+              href="/docs/CVfeb26.pdf"
               download="Juan_Michel_Lafarga_CV.pdf"
               className="font-mono uppercase transition-all inline-block"
               style={{ fontSize: '0.52rem', letterSpacing: '0.18em', padding: '7px 13px', border: '1px solid #ccc', color: '#777', textDecoration: 'none' }}
