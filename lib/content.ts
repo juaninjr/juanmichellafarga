@@ -697,7 +697,7 @@ export const artPieces: ArtPiece[] = [
   },
   {
     id: 'a6',
-    title: 'A Blue Twig Trunk',
+    title: 'Dunno Which City',
     year: 2017,
     medium: 'painting',
     dimensions: '40 x 40 cm',
