@@ -715,26 +715,9 @@ export const artPieces: ArtPiece[] = [
     image: '/images/art/captain.png',
     series: 'Pop',
   },
-  {
-    id: 'a8',
-    title: 'Some waterfalls',
-    year: 2018,
-    medium: 'Painting',
-    dimensions: '50 x 60 cm',
-    description: 'Acrylic waterfall.',
-    image: '/images/art/catarata.png',
-    series: 'Nature',
-  },
-  {
-    id: 'a9',
-    title: 'Dont Fall',
-    year: 2018,
-    medium: 'paining',
-    dimensions: '60 x 50 cm',
-    description: 'Whoops, tightrope acrylic things',
-    image: '/images/art/circo.png',
-    series: 'People',
-  },
+  
+  
+ 
   {
     id: 'a10',
     title: 'Walking Monks',
@@ -765,16 +748,7 @@ export const artPieces: ArtPiece[] = [
     image: '/images/art/kent.png',
     series: 'Pop',
   },
-  {
-    id: 'a13',
-    title: 'Would you like to sit?',
-    year: 2018,
-    medium: 'painting',
-    dimensions: '60 x 50 cm',
-    description: 'Acrylic, I want to be here',
-    image: '/images/art/lagocomo.png',
-    series: 'Nature',
-  },
+  
   {
     id: 'a14',
     title: 'Nothing on Here',
