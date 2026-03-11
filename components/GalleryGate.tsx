@@ -7,7 +7,7 @@ import Link from 'next/link';
 // TOGGLE: Set GALLERY_ENABLED to true when the gallery is ready to go live.
 // When false, visitors see the COMING_SOON_MESSAGE below instead of the gallery.
 // ─────────────────────────────────────────────────────────────────────────────
-const GALLERY_ENABLED = false;
+const GALLERY_ENABLED = true;
 
 // Preview access — visit /artist?access=jm-preview-2026 to unlock.
 // The key is saved to localStorage so the gallery stays unlocked on return visits.

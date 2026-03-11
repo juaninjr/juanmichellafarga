@@ -29,6 +29,7 @@ export default function Navigation({ mode, persona }: NavigationProps) {
     ? PERSONAS[persona].sections
         .filter((s) => s.variant !== 'hidden')
         .filter((s) => !(persona === 'architect' && s.id === 'studio'))
+        .filter(() => persona !== 'artist')
         .sort((a, b) => a.order - b.order)
         .slice(0, 5)
         .map((s) => s.id)

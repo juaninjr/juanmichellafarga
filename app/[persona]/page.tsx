@@ -55,7 +55,7 @@ export default function PersonaPage({ params }: PersonaPageProps) {
         <SectionRenderer config={config} />
       </main>
 
-      <Footer persona={config.slug} />
+      {config.slug !== 'artist' && <Footer persona={config.slug} />}
     </div>
   );
 
